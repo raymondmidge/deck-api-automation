@@ -1,0 +1,32 @@
+---
+
+create deck API:
+
+positive scenarios:
+verify all expected response fields are present
+verify remaining cards count (w/out jokers)
+verify remaining cards count (w/ jokers)
+verify ability to draw multiple decks ( <= 20)
+
+negative scenarios:
+verify too many decks requests ( > 20)
+
+---
+
+draw card API:
+
+positive scenarios
+verify drawing cards gives the correct remaing amount (parameterize)
+verify drawing cards multiple times gives the correct remaing amount
+verify all cards are accounted for (w/out jokers)
+verify all cards are accounted for (w/ jokers)
+verify if the deck is not shuffled, then they are dealt in order
+verify if the deck is shuffled, then they are not dealt in order
+verify there are no card duplicates
+verify API returns new deck when "new" is given in URL instead of the deck_id
+
+negative tests:
+draw more than the remaining amount (draw 53, assert that you see an error)
+use invalid deck_id
+
+---
