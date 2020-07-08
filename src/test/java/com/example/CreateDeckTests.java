@@ -27,7 +27,7 @@ class CreateDeckTests extends BaseRunner {
     @DisplayName("verify new deck has 52 cards remaining")
     void verifyFiftyTwoCardsRemain(){
         CreateDeckResponse response = callGetApi();
-        assertEquals(52, response.getRemaining());
+        assertEquals(52, response.getRemaining(), () -> String.format("expected 52 cards to be returned from fresh deck, but found %s remaining", response.getRemaining()));
     }
 
     @Test
@@ -35,7 +35,7 @@ class CreateDeckTests extends BaseRunner {
     void verifyJokersCanBeIncluded(){
         CreateDeckResponse response = callPostApi(getQueryParamsForIncludingJoker());
         assertTrue(response.getSuccess());
-        assertEquals(54, response.getRemaining(), () -> String.format("if jokers are provided in the deck, then the card count should be 53, but found %s instead", response.getRemaining()));
+        assertEquals(54, response.getRemaining(), () -> String.format("if jokers are provided in the deck, then the card count should be 54, but found %s instead", response.getRemaining()));
     }
 
 
